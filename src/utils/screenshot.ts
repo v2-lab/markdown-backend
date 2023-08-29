@@ -1,5 +1,5 @@
+import * as puppeteer from 'puppeteer-core';
 import chrome from 'chrome-aws-lambda';
-import puppeteer from 'puppeteer-core';
 
 export default async function screenshot(url: string) {
   const options = {
@@ -15,6 +15,7 @@ export default async function screenshot(url: string) {
     executablePath: await chrome.executablePath,
     headless: chrome.headless,
   };
+  console.log(123123, chrome);
   const browser = await puppeteer.launch(options);
   const page = await browser.newPage();
   await page.setViewport({ width: 2000, height: 1000 });
