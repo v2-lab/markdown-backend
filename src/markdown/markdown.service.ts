@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import nodeHtmlToImage from 'node-html-to-image';
 import * as fs from 'fs';
 import chrome from 'chrome-aws-lambda';
 import * as puppeteer from 'puppeteer-core';
@@ -1070,7 +1069,7 @@ export class MarkdownService {
 
     const pngBuffer = await screenshot('https://www.baidu.com');
     const base64Image =
-      'data:image/jpeg;base64,' + pngBuffer.toString('base64');
+      'data:image/jpeg;base64,' + (pngBuffer as Buffer).toString('base64');
     return base64Image;
   }
 }
