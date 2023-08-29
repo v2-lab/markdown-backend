@@ -3,13 +3,17 @@ import puppeteer from 'puppeteer-core';
 
 export default async function screenshot(url: string) {
   const options = {
-    args: [],
-    executablePath:
-      process.platform === 'win32'
-        ? 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'
-        : process.platform === 'linux'
-        ? '/usr/bin/google-chrome'
-        : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+    // args: [],
+    // executablePath:
+    //   process.platform === 'win32'
+    //     ? 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'
+    //     : process.platform === 'linux'
+    //     ? '/usr/bin/google-chrome'
+    //     : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+
+    args: chrome.args,
+    executablePath: await chrome.executablePath,
+    headless: chrome.headless,
   };
   const browser = await puppeteer.launch(options);
   const page = await browser.newPage();
