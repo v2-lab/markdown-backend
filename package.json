@@ -26,6 +26,7 @@
     "@nestjs/platform-express": "^7.6.15",
     "chrome-aws-lambda": "^10.1.0",
     "puppeteer-core": "10.1.0",
+    "puppeteer": "10.1.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.6"
